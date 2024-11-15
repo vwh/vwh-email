@@ -4,6 +4,7 @@ import { Buffer } from "node:buffer";
 import { simpleParser } from "mailparser";
 import { simplifyEmail } from "@/utils/emails";
 import { emailSchema } from "@/utils/zod";
+import { insertEmail } from "@/database/db";
 
 import { env } from "@/env.mjs";
 
@@ -31,7 +32,7 @@ export async function POST(request: NextRequest) {
       }
     );
 
-  // TODO: SAVE EMAIL TO DATABASE
+  insertEmail(simplifiedEmail);
 
   return NextResponse.json("OK");
 }
