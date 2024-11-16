@@ -41,9 +41,9 @@ export default function RootLayout({
               draggable={false}
               src="/logo.webp"
               className="h-28 w-28"
-              width={28}
-              height={28}
-              alt="Vite logo"
+              width={100}
+              height={100}
+              alt="Logo"
               title="Logo"
             />
           </Link>
