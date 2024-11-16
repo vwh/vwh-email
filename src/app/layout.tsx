@@ -47,7 +47,9 @@ export default function RootLayout({
               title="Logo"
             />
           </Link>
-          <div className="flex w-full max-w-5xl flex-col gap-2">{children}</div>
+          <main className="flex w-full max-w-5xl flex-col gap-2">
+            {children}
+          </main>
           <footer className="text-primary flex flex-col text-center">
             <span className="sm:text-md text-sm">
               Free temp mail service, anonymously and free.
