@@ -9,9 +9,14 @@ import { CopyIcon, CopyCheckIcon } from "lucide-react";
 interface CopyButtonProps {
   text: string;
   className?: string;
+  variant?: "ghost" | "outline";
 }
 
-export default function CopyButton({ text, className }: CopyButtonProps) {
+export default function CopyButton({
+  text,
+  className,
+  variant = "outline",
+}: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
@@ -24,7 +29,7 @@ export default function CopyButton({ text, className }: CopyButtonProps) {
 
   return (
     <Button
-      variant="outline"
+      variant={variant}
       size="icon"
       className={`h-10 w-10 ${className}`}
       onClick={copyToClipboard}
