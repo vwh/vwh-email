@@ -6,9 +6,9 @@ import EmailsRefresh from "@/components/client/emails-refresh";
 import { Loader2Icon, CircleXIcon } from "lucide-react";
 
 interface EmailProps {
-  params: {
+  params: Promise<{
     email: string;
-  };
+  }>;
 }
 
 export default async function Email({ params }: EmailProps) {

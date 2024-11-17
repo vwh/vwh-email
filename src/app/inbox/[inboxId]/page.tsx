@@ -8,9 +8,9 @@ import AddressBox from "@/components/address-box";
 import { ArrowRightIcon, CircleXIcon } from "lucide-react";
 
 interface InboxProps {
-  params: {
+  params: Promise<{
     inboxId: string;
-  };
+  }>;
 }
 
 export default async function InboxPage({ params }: InboxProps) {
