@@ -5,6 +5,8 @@ import { Lexend } from "next/font/google";
 import Image from "next/image";
 import type { Metadata } from "next";
 
+import NextTopLoader from "nextjs-toploader";
+
 const font = Lexend({
   subsets: ["latin"],
   display: "swap",
@@ -26,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${font.className} antialiased`}>
+        <NextTopLoader />
         <NoiseWrapper>
           <Link
             href="/"

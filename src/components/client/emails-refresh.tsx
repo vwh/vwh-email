@@ -46,7 +46,7 @@ export default function EmailsRefresh({ dbEmails, email }: EmailsRefreshProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       fetchEmails();
-    }, 15000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [fetchEmails]);
