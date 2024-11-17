@@ -1280,13 +1280,15 @@ const words = [
   "metal",
   "pie",
   "jewel",
-  "cord"
+  "cord",
 ];
 
 export function randomMail() {
   let name = "";
+
   for (let i = 0; i < 2; i++) {
     name += `${words[Math.floor(Math.random() * words.length)]}-`;
   }
+
   return name.slice(0, -1);
 }

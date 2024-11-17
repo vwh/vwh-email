@@ -6,7 +6,9 @@ export function convertAddress(
   address: AddressObject | AddressObject[] | undefined
 ): EmailAddress | null {
   if (!address) return null;
+
   const addresses = Array.isArray(address) ? address : [address];
+
   return {
     text: addresses.map((a) => a.text).join(", "),
     html: addresses.map((a) => a.html).join(", "),

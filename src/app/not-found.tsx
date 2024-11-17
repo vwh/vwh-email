@@ -1,21 +1,19 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import ErrorAlert from "@/components/error-alert";
 
 export default function NotFound() {
   return (
-    <section className="bg-primary/85 rounded border p-6 shadow-sm">
-      <div className="text-center">
-        <h1 className="text-background mb-4 text-3xl font-bold">
+    <ErrorAlert>
+      <div className="flex flex-col items-center justify-center gap-2">
+        <h1 className="text-primary text-1xl font-bold sm:text-2xl">
           Oops! Page Not Found
         </h1>
-        <p className="text-background/80 mb-6">
-          The page you{"'"}re looking for doesn{"'"}t exist or has been moved.
-        </p>
-        <Link href="/">
+        <Link href="/" className="text-sm text-foreground/80">
           <Button variant="outline">Go Back to Home</Button>
         </Link>
       </div>
-    </section>
+    </ErrorAlert>
   );
 }

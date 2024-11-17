@@ -86,6 +86,7 @@ export function getEmailsForAddress(address: string): Result<DatabaseEmails> {
     return { success: true, data: emails };
   } catch (error) {
     if (error instanceof Error) return { success: false, error };
+
     return { success: false, error: new Error("Unknown error") };
   }
 }
@@ -95,6 +96,7 @@ export function getInboxById(inboxId: string): Result<DatabaseInbox> {
     const inbox = db
       .prepare(SQL_STATEMENTS.getInboxById)
       .get(inboxId) as DatabaseInbox;
+
     return { success: true, data: inbox };
   } catch (error) {
     if (error instanceof Error) return { success: false, error };

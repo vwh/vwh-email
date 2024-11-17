@@ -27,6 +27,9 @@ export default async function Email({ params }: EmailProps) {
           </h1>
           <CircleXIcon className="text-primary h-4 w-4 sm:h-7 sm:w-7" />
         </div>
+        <p className="text-foreground/80 mt-1 text-sm">
+          Try refreshing the page or check back later.
+        </p>
       </ErrorAlert>
     );
 
