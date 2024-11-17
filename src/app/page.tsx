@@ -23,8 +23,8 @@ export default function Home() {
               Use any inbox to avoid spam
             </h3>
             <p className="text-foreground/80">
-              Use Inbox Kitten when you don{"'"}t want to get spammed by
-              revealing your real email address.
+              Use it when you don{"'"}t want to get spammed by revealing your
+              real email address.
             </p>
           </div>
         </div>
