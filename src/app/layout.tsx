@@ -2,7 +2,6 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import Link from "next/link";
-
 import localFont from "next/font/local";
 import Image from "next/image";
 
@@ -71,9 +70,13 @@ export default function RootLayout({
   );
 }
 
-function NoiseWrapper({ children }: { children: React.ReactNode }) {
+interface NoiseWrapperProps {
+  children: React.ReactNode;
+}
+
+function NoiseWrapper({ children }: NoiseWrapperProps) {
   return (
-    <main className="noise mx-auto px-4">
+    <main className="noise mx-auto px-4 opacity-80">
       <div className="overlay" />
       <div className="z-20 my-8 flex h-full w-full flex-col items-center gap-6">
         {children}
