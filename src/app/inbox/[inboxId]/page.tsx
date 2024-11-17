@@ -9,5 +9,5 @@ interface InboxProps {
 export default async function InboxPage({ params }: InboxProps) {
   const { inboxId } = await params;
 
-  return <Inbox inboxId={inboxId} isModal={false} />;
+  return <Inbox inboxId={inboxId} />;
 }

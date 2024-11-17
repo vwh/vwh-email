@@ -25,3 +25,13 @@ export type DatabaseEmail = {
 };
 
 export type DatabaseEmails = DatabaseEmail[];
+
+export type Result<T> =
+  | {
+      success: true;
+      data: T;
+    }
+  | {
+      success: false;
+      error: Error;
+    };

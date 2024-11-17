@@ -16,9 +16,21 @@ interface EmailProps {
 export default async function Email({ params }: EmailProps) {
   const { email } = await params;
   const decodedEmail = decodeURIComponent(email);
-  const emails = getEmailsForAddress(decodedEmail);
 
-  if (!emails || emails?.length === 0)
+  const result = getEmailsForAddress(decodedEmail);
+  if (!result.success)
+    return (
+      <ErrorAlert>
+        <div className="flex items-center justify-center gap-2">
+          <h1 className="text-primary text-1xl font-bold sm:text-2xl">
+            Unable to fetch emails
+          </h1>
+          <CircleXIcon className="text-primary h-4 w-4 sm:h-7 sm:w-7" />
+        </div>
+      </ErrorAlert>
+    );
+
+  if (result.data.length === 0)
     return (
       <ErrorAlert>
         <div className="flex items-center justify-center gap-2">
@@ -57,7 +69,7 @@ export default async function Email({ params }: EmailProps) {
       </section>
 
       <section className="space-y-2">
-        {emails.map(({ id, subject, createdAt, fromAddress }) => (
+        {result.data.map(({ id, subject, createdAt, fromAddress }) => (
           <EmailListItem
             key={id}
             id={id}

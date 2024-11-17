@@ -32,7 +32,13 @@ export async function POST(request: NextRequest) {
       }
     );
 
-  insertEmail(simplifiedEmail);
+  const result = insertEmail(simplifiedEmail);
+  if (result.success) return NextResponse.json("OK");
 
-  return NextResponse.json("OK");
+  return NextResponse.json(
+    { error: result.error.message },
+    {
+      status: 400,
+    }
+  );
 }
