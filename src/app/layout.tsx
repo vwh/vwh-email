@@ -1,19 +1,16 @@
 import "./globals.css";
 
-import type { Metadata } from "next";
 import Link from "next/link";
-import localFont from "next/font/local";
+import { Lexend } from "next/font/google";
 import Image from "next/image";
+import type { Metadata } from "next";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const font = Lexend({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-lexend",
+  fallback: ["sans-serif"],
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -28,9 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${font.className} antialiased`}>
         <NoiseWrapper>
           <Link
             href="/"
