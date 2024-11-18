@@ -4,6 +4,7 @@ import { formatDistanceToNow } from "date-fns";
 import ErrorAlert from "@/components/error-alert";
 import BackLink from "@/components/back-link";
 import AddressBox from "@/components/address-box";
+import HtmlEmail from "@/components/client/html-email";
 
 import { ArrowRightIcon, CircleXIcon } from "lucide-react";
 
@@ -34,9 +35,7 @@ export default async function InboxPage({ params }: InboxProps) {
 
   const renderContent = () => {
     if (result.data?.htmlContent)
-      return (
-        <div dangerouslySetInnerHTML={{ __html: result.data.htmlContent }} />
-      );
+      return <HtmlEmail html={result.data.htmlContent} />;
 
     if (result.data?.textContent)
       return (

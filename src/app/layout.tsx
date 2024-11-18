@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${font.className} antialiased`}>
-        <NextTopLoader />
+        <NextTopLoader showSpinner={false} color="#909DA8" />
         <NoiseWrapper>
           <Link
             href="/"
