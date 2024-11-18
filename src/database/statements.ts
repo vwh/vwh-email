@@ -32,6 +32,12 @@ export const SQL_STATEMENTS = {
     );
     `,
 
+  // Create indexes
+  CREATE_INDEX: `
+    CREATE INDEX IF NOT EXISTS idx_email_id ON EmailAddress(emailId);
+    CREATE INDEX IF NOT EXISTS idx_inbox_address ON Inbox(address);
+  `,
+
   // PRAGMA settings for performance optimization
   PRAGMA: `
     PRAGMA foreign_keys = ON;
@@ -40,43 +46,60 @@ export const SQL_STATEMENTS = {
     `,
 
   // Insert statement for Email
-  insertEmail: `
+  INSERT_EMAIL: `
     INSERT INTO Email 
     (subject, expiresAt)
     VALUES (?, ?)
     `,
 
   // Insert statement for Inbox
-  insertInbox: `
+  INSERT_INBOX: `
     INSERT INTO Inbox 
     (id, emailId, address, type, textContent, htmlContent) 
     VALUES (?, ?, ?, ?, ?, ?)
     `,
 
   // Insert statement for EmailAddress
-  insertEmailAddress: `
+  INSERT_EMAIL_ADDRESS: `
     INSERT INTO EmailAddress 
     (emailId, type, address)
     VALUES (?, ?, ?)
     `,
 
   // For fetching emails for a specific address
-  getEmailsForAddress: `
+  GET_EMAILS_FOR_ADDRESS: `
     SELECT 
-      Inbox.id, 
-      Email.subject, 
-      Email.CreatedAt,
-      (SELECT EmailAddress.address FROM EmailAddress WHERE EmailAddress.emailId = Email.id AND EmailAddress.type = 'from') as fromAddress,
-      GROUP_CONCAT(EmailAddress.address, ', ') as toAddress
+      Inbox.id,
+      Email.subject,
+      Email.createdAt,
+      Email.expiresAt,
+      (SELECT EmailAddress.address 
+      FROM EmailAddress 
+      WHERE EmailAddress.emailId = Email.id AND EmailAddress.type = 'from') as fromAddress,
+      GROUP_CONCAT(
+        CASE 
+          WHEN EmailAddress.type = 'to' THEN EmailAddress.address 
+          ELSE NULL 
+        END, ', ') as toAddress,
+      GROUP_CONCAT(
+        CASE 
+          WHEN EmailAddress.type = 'cc' THEN EmailAddress.address 
+          ELSE NULL 
+        END, ', ') as ccAddress,
+      GROUP_CONCAT(
+        CASE 
+          WHEN EmailAddress.type = 'bcc' THEN EmailAddress.address 
+          ELSE NULL 
+        END, ', ') as bccAddress
     FROM Email
     JOIN Inbox ON Email.id = Inbox.emailId
-    LEFT JOIN EmailAddress ON Email.id = EmailAddress.emailId AND EmailAddress.type = 'to'
+    LEFT JOIN EmailAddress ON Email.id = EmailAddress.emailId
     WHERE Inbox.address = ?
-    GROUP BY Email.id
+    GROUP BY Email.id;
   `,
 
   // For fetching email by inbox ID (to get the full body)
-  getInboxById: `
+  GET_INBOX_BY_ID: `
     SELECT 
       Inbox.id,
       Inbox.textContent, 
@@ -94,8 +117,8 @@ export const SQL_STATEMENTS = {
   `,
 
   // To delete expired entries
-  deleteExpiredEntries: `
-    DELETE FROM Inbox
-    WHERE createdAt < strftime('%s', 'now', '-3 days') * 1000
+  DELETE_EXPIRED_ENTRIES: `
+    DELETE FROM Email
+    WHERE expiresAt < strftime('%s', 'now') * 1000;
     `,
 };

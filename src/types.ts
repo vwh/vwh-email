@@ -20,6 +20,7 @@ export type DatabaseEmail = {
   id: string;
   subject: string | null;
   createdAt: string;
+  expiresAt: string;
   fromAddress: string | null;
   toAddress: string;
 };

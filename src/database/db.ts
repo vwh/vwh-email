@@ -10,10 +10,11 @@ const db = new Database("mail.db");
 
 db.exec(SQL_STATEMENTS.PRAGMA);
 db.exec(SQL_STATEMENTS.CREATE_TABLES);
+db.exec(SQL_STATEMENTS.CREATE_INDEX);
 
 setInterval(() => {
   try {
-    db.exec(SQL_STATEMENTS.deleteExpiredEntries);
+    db.exec(SQL_STATEMENTS.DELETE_EXPIRED_ENTRIES);
   } catch (error) {
     console.error(error);
   }
@@ -23,45 +24,49 @@ export function insertEmail(
   emailData: SimplifiedEmail
 ): Result<number | bigint> {
   try {
-    // Insert email into Email table
     const emailId = db
-      .prepare(SQL_STATEMENTS.insertEmail)
+      .prepare(SQL_STATEMENTS.INSERT_EMAIL)
       .run(
         emailData.subject,
         Date.now() + 3 * 24 * 60 * 60 * 1000
       ).lastInsertRowid;
 
-    // Insert email addresses into EmailAddress table
-    for (const { type, values } of [
+    // Prepare insert statements for performance
+    const insertAddress = db.prepare(SQL_STATEMENTS.INSERT_EMAIL_ADDRESS);
+    const insertInbox = db.prepare(SQL_STATEMENTS.INSERT_INBOX);
+
+    // Insert email addresses
+    const recipientGroups = [
       { type: "from", values: emailData.from?.value || [] },
       { type: "to", values: emailData.to?.value || [] },
       { type: "cc", values: emailData.cc?.value || [] },
       { type: "bcc", values: emailData.bcc?.value || [] },
-    ]) {
-      for (const recipient of values) {
-        db.prepare(SQL_STATEMENTS.insertEmailAddress).run(
-          emailId,
-          type,
-          recipient.address
-        );
-      }
+    ];
+
+    for (const { type, values } of recipientGroups) {
+      db.transaction(() => {
+        for (const recipient of values) {
+          insertAddress.run(emailId, type, recipient.address);
+        }
+      })();
     }
 
-    // Insert inbox entry for each recipient with body content
-    for (const recipient of [
+    // Insert inbox entries
+    const allRecipients = [
       ...(emailData.to?.value || []),
       ...(emailData.cc?.value || []),
       ...(emailData.bcc?.value || []),
-    ]) {
-      const inboxId = cuid();
+    ];
+
+    for (const recipient of allRecipients) {
       const type = emailData.to?.value?.includes(recipient)
         ? "to"
         : emailData.cc?.value?.includes(recipient)
         ? "cc"
         : "bcc";
 
-      db.prepare(SQL_STATEMENTS.insertInbox).run(
-        inboxId,
+      insertInbox.run(
+        cuid(),
         emailId,
         recipient.address,
         type,
@@ -80,7 +85,7 @@ export function insertEmail(
 export function getEmailsForAddress(address: string): Result<DatabaseEmails> {
   try {
     const emails = db
-      .prepare(SQL_STATEMENTS.getEmailsForAddress)
+      .prepare(SQL_STATEMENTS.GET_EMAILS_FOR_ADDRESS)
       .all(address) as DatabaseEmails;
 
     return { success: true, data: emails };
@@ -94,7 +99,7 @@ export function getEmailsForAddress(address: string): Result<DatabaseEmails> {
 export function getInboxById(inboxId: string): Result<DatabaseInbox> {
   try {
     const inbox = db
-      .prepare(SQL_STATEMENTS.getInboxById)
+      .prepare(SQL_STATEMENTS.GET_INBOX_BY_ID)
       .get(inboxId) as DatabaseInbox;
 
     return { success: true, data: inbox };
