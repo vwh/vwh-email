@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert";
 
 const __SECRET__ = "123";
-const __PORT__ = 3000;
+const __PORT__ = 9169;
 
 const __WEBHOOK__ = `http://localhost:${__PORT__}/webhook`;
 const __DUMMY_EMAIL__ = `From: sender1342@example.com
