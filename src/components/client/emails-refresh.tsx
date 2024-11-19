@@ -7,8 +7,9 @@ import type { DatabaseEmails } from "@/types";
 import BackLink from "@/components/back-link";
 import EmailListItem from "@/components/email-list-item";
 import CopyButton from "@/components/client/copy-button";
+import ErrorAlert from "@/components/error-alert";
 
-import { MailSearchIcon } from "lucide-react";
+import { MailSearchIcon, Loader2Icon } from "lucide-react";
 
 interface EmailsRefreshProps {
   email: string;
@@ -50,6 +51,21 @@ export default function EmailsRefresh({ dbEmails, email }: EmailsRefreshProps) {
 
     return () => clearInterval(interval);
   }, [fetchEmails]);
+
+  if (dbEmails.length === 0)
+    return (
+      <ErrorAlert>
+        <div className="flex items-center justify-center gap-2">
+          <h1 className="text-primary text-1xl font-bold sm:text-2xl">
+            No Emails Found Yet
+          </h1>
+          <Loader2Icon className="text-primary h-4 w-4 animate-spin sm:h-7 sm:w-7" />
+        </div>
+        <p className="text-foreground/80 mt-1 text-sm">
+          Refreshing Automatically
+        </p>
+      </ErrorAlert>
+    );
 
   return (
     <>
