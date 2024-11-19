@@ -1,36 +1,164 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VWH Email
 
-## Getting Started
+VWH Email is an open-source temporary email service that provides quick, anonymous email solutions.
 
-First, run the development server:
+## Installation Methods
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🐳 Dockerized Installation (Coming Soon)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Status: Under Development**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Complete Docker containerization is in progress
+- Will include Postfix mail server
+- One-click deployment
+- Simplified configuration
+- Expected features:
+  - Pre-configured Postfix
+  - Integrated webhook
+  - Easy environment setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🖥️ Manual Installation
 
-## Learn More
+#### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- **Domain**: vwh.sh
+- **DNS Provider**: Cloudflare
+- **Server**: Ubuntu VPS
+- **Mail Server Software**: Postfix
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Step 1: DNS Configuration (Cloudflare)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Log in to your Cloudflare account
+2. Select your domain (vwh.sh)
+3. Go to the DNS settings
+4. Add the following records:
+   - MX record:
+     - Name: `@`
+     - Value: `mail.vwh.sh`
+     - Priority: 10
+   - A record:
+     - Name: `mail`
+     - Value: `[Your VPS IP address]`
+   - TXT record (for SPF):
+     - Name: `@`
+     - Value: `v=spf1 mx ~all`
 
-## Deploy on Vercel
+#### Step 2: VPS Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. SSH into your Ubuntu VPS
+2. Update the system:
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+   ```
+3. Set the hostname:
+   ```bash
+   sudo hostnamectl set-hostname mail.vwh.sh
+   ```
+4. Update `/etc/hosts`:
+   ```bash
+   sudo nano /etc/hosts
+   ```
+   Add: `[Your VPS IP] mail.vwh.sh vwh.sh`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Step 3: Install and Configure Postfix
+
+1. Install Postfix:
+   ```bash
+   sudo apt install postfix -y
+   ```
+2. During installation, choose "Internet Site" and enter "vwh.sh" as the system mail name
+3. Edit the main Postfix configuration:
+   ```bash
+   sudo nano /etc/postfix/main.cf
+   ```
+   Add or modify these lines:
+   ```
+   myhostname = mail.vwh.sh
+   mydestination = $myhostname, vwh.sh, localhost.$mydomain, localhost
+   inet_interfaces = all
+   mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+   smtpd_recipient_restrictions = permit_mynetworks, reject_unauth_destination
+   virtual_alias_domains = vwh.sh
+   virtual_alias_maps = regexp:/etc/postfix/virtual_regexp
+   ```
+4. Create and edit the `virtual_regexp` file:
+   ```bash
+   sudo nano /etc/postfix/virtual_regexp
+   ```
+   Add this line:
+   ```
+   /.+@vwh\.sh/ catchall@vwh.sh
+   ```
+5. Restart Postfix:
+   ```bash
+   sudo systemctl restart postfix
+   ```
+
+#### Step 4: Configure Postfix to Forward Emails to Webhook
+
+1. Install procmail:
+   ```bash
+   sudo apt install procmail -y
+   ```
+2. Create a script to forward emails:
+
+   ```bash
+   sudo nano /usr/local/bin/forward-to-webhook.sh
+   ```
+
+   Add the following content:
+
+   ```bash
+    #!/bin/bash
+    sed '/Content-Disposition: attachment/,/^\s*$/d; /Content-Disposition: inline/,/^\s*$/d' | \
+    curl -X POST -H "Content-Type: text/plain" -H "Secret: 12398" --data-binary @- http://localhost:9169/webhook
+   ```
+
+   **Note**: Update the `Secret` to match your website/webhook environment variable
+
+3. Make the script executable:
+   ```bash
+   sudo chmod +x /usr/local/bin/forward-to-webhook.sh
+   ```
+4. Edit the Postfix aliases file:
+   ```bash
+   sudo nano /etc/aliases
+   ```
+   Add this line:
+   ```
+   catchall: "|/usr/local/bin/forward-to-webhook.sh"
+   ```
+5. Update the aliases database:
+   ```bash
+   sudo newaliases
+   ```
+6. Restart Postfix:
+   ```bash
+   sudo systemctl restart postfix
+   ```
+
+#### Step 5: Install and Configure Website
+
+1. Clone VWH Email repository:
+   ```bash
+   git clone https://github.com/vwh/vwh-email
+   cd temp-mail
+   ```
+2. Install dependencies:
+   ```bash
+   npm install --force
+   ```
+3. Configure environment variables:
+   - Add your `SECRET` to the environment configuration
+4. Start development server:
+   ```bash
+   npm run dev
+   ```
+
+## Contributing
+
+Contributions are welcome! Feel free to open a pull request with your improvements or fixes.
+
+## License
+
+Under the MIT License. See [License](https://github.com/vwh/vwh-email/blob/main/LICENSE) for more information.

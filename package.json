@@ -1,6 +1,5 @@
 {
-  "name": "vw-mail",
-  "version": "0.1.0",
+  "name": "vw-email",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack -p 9169",
