@@ -2,9 +2,7 @@
 
 VWH Email is an open-source temporary email service that provides quick, anonymous email solutions.
 
-## Installation Methods
-
-### 🐳 Dockerized Installation (Coming Soon)
+## 🐳 Dockerized Installation (Coming Soon)
 
 **Status: Under Development**
 
@@ -17,7 +15,7 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
   - Integrated webhook
   - Easy environment setup
 
-### 🖥️ Manual Installation
+## 🖥️ Manual Installation
 
 #### Prerequisites
 
@@ -109,9 +107,9 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
    Add the following content:
 
    ```bash
-    #!/bin/bash
-    sed '/Content-Disposition: attachment/,/^\s*$/d; /Content-Disposition: inline/,/^\s*$/d' | \
-    curl -X POST -H "Content-Type: text/plain" -H "Secret: 12398" --data-binary @- http://localhost:9169/webhook
+   #!/bin/bash
+   sed '/Content-Disposition: attachment/,/^\s*$/d; /Content-Disposition: inline/,/^\s*$/d' | \
+   curl -X POST -H "Content-Type: text/plain" -H "Secret: 12398" --data-binary @- http://localhost:9169/webhook
    ```
 
    **Note**: Update the `Secret` to match your website/webhook environment variable
@@ -142,14 +140,23 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
 1. Clone VWH Email repository:
    ```bash
    git clone https://github.com/vwh/vwh-email
-   cd temp-mail
+   cd vwh-email
    ```
 2. Install dependencies:
    ```bash
    npm install --force
    ```
 3. Configure environment variables:
+
    - Add your `SECRET` to the environment configuration
+     ```bash
+     SECRET="12398"
+     ```
+
+   ```
+
+   ```
+
 4. Start development server:
    ```bash
    npm run dev
