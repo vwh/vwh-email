@@ -28,6 +28,9 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
 
 1. Log in to your Cloudflare account
 2. Select your domain (vwh.sh)
+
+   **Note**: In all the following steps, replace `vwh.sh` with your domain name.
+
 3. Go to the DNS settings
 4. Add the following records:
    - MX record:
@@ -114,6 +117,8 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
 
    **Note**: Update the `Secret` to match your website/webhook environment variable
 
+   **Note**: It will forward the email to the webhook URL by default (http://localhost:9169/webhook). If you want to forward it to a different URL, you can change the URL in the script.
+
 3. Make the script executable:
    ```bash
    sudo chmod +x /usr/local/bin/forward-to-webhook.sh
@@ -149,12 +154,9 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
 3. Configure environment variables:
 
    - Add your `SECRET` to the environment configuration
-     ```bash
-     SECRET="12398"
-     ```
 
-   ```
-
+   ```bash
+   SECRET="12398"
    ```
 
 4. Start development server:
