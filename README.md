@@ -2,6 +2,15 @@
 
 VWH Email is an open-source temporary email service that provides quick, anonymous email solutions.
 
+## TODO
+
+- [ ] API Docs
+- [ ] Delete email button
+- [ ] Docker containerization
+- [ ] Deploy CLI ( add domains, edit config.. )
+- [ ] Handle multi domains
+- [ ] Web interface improvements
+
 ## 🐳 Dockerized Installation (Coming Soon)
 
 **Status: Under Development**
@@ -17,14 +26,16 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
 
 ## 🖥️ Manual Installation
 
-#### Prerequisites
+### Prerequisites
 
 - **Domain**: vwh.sh
 - **DNS Provider**: Cloudflare
 - **Server**: Ubuntu VPS
 - **Mail Server Software**: Postfix
 
-#### Step 1: DNS Configuration (Cloudflare)
+---
+
+### Step 1: DNS Configuration (Cloudflare)
 
 1. Log in to your Cloudflare account
 2. Select your domain (vwh.sh)
@@ -44,7 +55,9 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
      - Name: `@`
      - Value: `v=spf1 mx ~all`
 
-#### Step 2: VPS Setup
+---
+
+### Step 2: VPS Setup
 
 1. SSH into your Ubuntu VPS
 2. Update the system:
@@ -61,7 +74,9 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
    ```
    Add: `[Your VPS IP] mail.vwh.sh vwh.sh`
 
-#### Step 3: Install and Configure Postfix
+---
+
+### Step 3: Install and Configure Postfix
 
 1. Install Postfix:
    ```bash
@@ -90,12 +105,17 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
    ```
    /.+@vwh\.sh/ catchall@vwh.sh
    ```
+
+---
+
 5. Restart Postfix:
    ```bash
    sudo systemctl restart postfix
    ```
 
-#### Step 4: Configure Postfix to Forward Emails to Webhook
+---
+
+### Step 4: Configure Postfix to Forward Emails to Webhook
 
 1. Install procmail:
    ```bash
@@ -140,7 +160,9 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
    sudo systemctl restart postfix
    ```
 
-#### Step 5: Install and Configure Website
+---
+
+### Step 5: Install and Configure Website
 
 1. Clone VWH Email repository:
    ```bash
@@ -163,6 +185,8 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
    ```bash
    npm run dev
    ```
+
+---
 
 ## Contributing
 
