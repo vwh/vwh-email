@@ -6,6 +6,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 import NextTopLoader from "nextjs-toploader";
+import { Button } from "@/components/ui/button";
 
 const font = Lexend({
   subsets: ["latin"],
@@ -30,6 +31,11 @@ export default function RootLayout({
       <body className={`${font.className} antialiased`}>
         <NextTopLoader showSpinner={false} color="#909DA8" />
         <NoiseWrapper>
+          <Link href="/api/" className="absolute top-4 right-4">
+            <Button variant="outline" size="sm" className="text-sm">
+              API
+            </Button>
+          </Link>
           <Link
             href="/"
             className="transition-transform duration-300 hover:scale-110"
