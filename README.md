@@ -2,15 +2,6 @@
 
 VWH Email is an open-source temporary email service that provides quick, anonymous email solutions.
 
-## TODO
-
-- [ ] API Docs
-- [ ] Delete email button
-- [ ] Docker containerization
-- [ ] Deploy CLI ( add domains, edit config.. )
-- [ ] Handle multi domains
-- [ ] Web interface improvements
-
 ## 🐳 Dockerized Installation (Coming Soon)
 
 **Status: Under Development**
