@@ -31,7 +31,6 @@ export function insertEmail(
         Date.now() + 3 * 24 * 60 * 60 * 1000
       ).lastInsertRowid;
 
-    // Prepare insert statements for performance
     const insertAddress = db.prepare(SQL_STATEMENTS.INSERT_EMAIL_ADDRESS);
     const insertInbox = db.prepare(SQL_STATEMENTS.INSERT_INBOX);
 

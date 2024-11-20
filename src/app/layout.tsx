@@ -17,7 +17,7 @@ const font = Lexend({
 
 export const metadata: Metadata = {
   title: "VWH Email",
-  description: "Free temp mail service, anonymously and free.",
+  description: "Temp mail service, anonymously and free.",
 };
 
 export default function RootLayout({
@@ -49,7 +49,7 @@ export default function RootLayout({
           </main>
           <footer className="text-primary flex flex-col text-center">
             <span className="sm:text-md text-sm">
-              Free temp mail service, anonymously and free.
+              Temp mail service, anonymously and free.
             </span>
             <a
               target="_blank"
