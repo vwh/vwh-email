@@ -107,3 +107,13 @@ export function getInboxById(inboxId: string): Result<DatabaseInbox> {
     return { success: false, error: new Error("Unknown error") };
   }
 }
+
+export function deleteInbox(inboxId: string): Result<boolean> {
+  try {
+    db.prepare(SQL_STATEMENTS.DELETE_BY_INBOX_ID).run(inboxId);
+    return { success: true, data: true };
+  } catch (error) {
+    if (error instanceof Error) return { success: false, error };
+    return { success: false, error: new Error("Unknown error") };
+  }
+}

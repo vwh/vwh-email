@@ -42,7 +42,7 @@ export default function HomeInput({ emailValue }: HomeInputProps) {
         <CopyButton text={email} />
       </div>
       <Link href={`/${email}`}>
-        <Button className="mt-2 w-full">Get Mail Now!</Button>
+        <Button className="mt-2 w-full text-background">Get Mail Now!</Button>
       </Link>
     </section>
   );

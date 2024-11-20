@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { getInboxById } from "@/database/db";
 import { formatDistanceToNow } from "date-fns";
 
@@ -6,7 +8,8 @@ import BackLink from "@/components/back-link";
 import AddressBox from "@/components/address-box";
 import HtmlEmail from "@/components/client/html-email";
 
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, Trash2Icon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface InboxProps {
   params: Promise<{
@@ -64,7 +67,11 @@ export default async function InboxPage({ params }: InboxProps) {
           />
         </div>
       </section>
-
+      <Link href={`/delete/${inboxId}`} className="w-full">
+        <Button className="text-background w-full">
+          Delete Email <Trash2Icon />
+        </Button>
+      </Link>
       <section className="bg-primary/10 space-y-6">
         <div className="rounded border p-4 shadow-sm">
           <div className="mb-4 flex flex-col text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">

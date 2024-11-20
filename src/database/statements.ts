@@ -116,6 +116,12 @@ export const SQL_STATEMENTS = {
     GROUP BY Email.id
   `,
 
+  // Delete email by inbox ID
+  DELETE_BY_INBOX_ID: `
+    DELETE FROM Inbox
+    WHERE id = ?
+  `,
+
   // To delete expired entries
   DELETE_EXPIRED_ENTRIES: `
     DELETE FROM Email
