@@ -6,7 +6,7 @@ import BackLink from "@/components/back-link";
 import AddressBox from "@/components/address-box";
 import HtmlEmail from "@/components/client/html-email";
 
-import { ArrowRightIcon, CircleXIcon } from "lucide-react";
+import { ArrowRightIcon } from "lucide-react";
 
 interface InboxProps {
   params: Promise<{
@@ -20,17 +20,10 @@ export default async function InboxPage({ params }: InboxProps) {
   const result = getInboxById(inboxId);
   if (!result.success)
     return (
-      <ErrorAlert>
-        <div className="flex items-center justify-center gap-2">
-          <h1 className="text-primary text-1xl font-bold sm:text-2xl">
-            Unable to fetch inbox
-          </h1>
-          <CircleXIcon className="text-primary h-4 w-4 sm:h-7 sm:w-7" />
-        </div>
-        <p className="text-foreground/80 mt-1 text-sm">
-          Try refreshing the page or check back later.
-        </p>
-      </ErrorAlert>
+      <ErrorAlert
+        title="Unable to fetch inbox"
+        description="Try refreshing the page or check back later."
+      />
     );
 
   const renderContent = () => {
@@ -47,14 +40,10 @@ export default async function InboxPage({ params }: InboxProps) {
 
   if (!result.data)
     return (
-      <ErrorAlert>
-        <div className="flex items-center justify-center gap-2">
-          <h1 className="text-primary text-1xl font-bold sm:text-2xl">
-            No Inbox Found
-          </h1>
-          <CircleXIcon className="text-primary h-4 w-4 sm:h-7 sm:w-7" />
-        </div>
-      </ErrorAlert>
+      <ErrorAlert
+        title="No Inbox Found"
+        description="Does not exist or has been deleted."
+      />
     );
 
   return (

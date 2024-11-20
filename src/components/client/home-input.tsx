@@ -34,6 +34,7 @@ export default function HomeInput({ emailValue }: HomeInputProps) {
           }}
           placeholder="Enter your email address"
           className="flex-grow"
+          type="email"
         />
         <Button onClick={regenerateEmail} size="icon" variant="outline">
           <RefreshCwIcon className="h-4 w-4" />

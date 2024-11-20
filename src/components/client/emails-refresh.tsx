@@ -89,17 +89,13 @@ export default function EmailsRefresh({ dbEmails, email }: EmailsRefreshProps) {
           ))}
         </section>
       ) : (
-        <ErrorAlert>
-          <div className="flex items-center justify-center gap-2">
-            <h1 className="text-primary text-1xl font-bold sm:text-2xl">
-              No Emails Found Yet
-            </h1>
+        <ErrorAlert
+          title="No Emails Found Yet"
+          description="Refreshing Automatically"
+          icon={
             <Loader2Icon className="text-primary h-4 w-4 animate-spin sm:h-7 sm:w-7" />
-          </div>
-          <p className="text-foreground/80 mt-1 text-sm">
-            Refreshing Automatically
-          </p>
-        </ErrorAlert>
+          }
+        />
       )}
     </>
   );
