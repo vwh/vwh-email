@@ -14,7 +14,7 @@ export default function InboxDeleteRedirect({
 
   useEffect(() => {
     router.push(`/${toAddress}`, { scroll: false });
-  }, [toAddress]);
+  }, [toAddress, router]);
 
   return null;
 }
