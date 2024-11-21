@@ -60,11 +60,11 @@ export default function EmailsRefresh({ dbEmails, email }: EmailsRefreshProps) {
         <p className="flex items-center text-sm text-red-500">{error}</p>
       </section>
 
-      <section className="bg-primary/85 rounded border p-6 shadow-sm">
+      <section className="rounded border bg-primary/85 p-6 shadow-sm">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <MailSearchIcon className="text-background h-8 w-8" />
-            <h2 className="text-background text-1xl max-w-[250px] truncate font-semibold sm:max-w-full">
+            <MailSearchIcon className="h-8 w-8 text-background" />
+            <h2 className="text-1xl max-w-[250px] truncate font-semibold text-background sm:max-w-full">
               {email}
             </h2>
           </div>
@@ -93,7 +93,7 @@ export default function EmailsRefresh({ dbEmails, email }: EmailsRefreshProps) {
           title="No Emails Found Yet"
           description="Refreshing Automatically"
           icon={
-            <Loader2Icon className="text-primary h-4 w-4 animate-spin sm:h-7 sm:w-7" />
+            <Loader2Icon className="h-4 w-4 animate-spin text-primary sm:h-7 sm:w-7" />
           }
         />
       )}

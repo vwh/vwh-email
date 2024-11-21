@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(
       { error: deleteResult.error.message },
       {
-        status: 400,
+        status: 400
       }
     );
   }
@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
   return NextResponse.json(
     { error: getResult.error.message },
     {
-      status: 400,
+      status: 400
     }
   );
 }

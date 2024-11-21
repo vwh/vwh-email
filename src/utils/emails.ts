@@ -16,8 +16,8 @@ export function convertAddress(
       .flatMap((a) => a.value || [])
       .map((v) => ({
         address: v.address || null,
-        name: v.name || null,
-      })),
+        name: v.name || null
+      }))
   };
 }
 
@@ -32,7 +32,7 @@ export function simplifyEmail(email: ParsedMail): SimplifiedEmail {
     subject: email.subject || null,
     text: email.text || null,
     html: email.html || null,
-    date: email.date || new Date(),
+    date: email.date || new Date()
     // attachments:
     //   email.attachments?.map((att) => ({
     //     filename: att.filename || null,

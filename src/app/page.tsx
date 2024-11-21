@@ -8,19 +8,19 @@ export default function Home() {
   const email = `${randomMail()}@vwh.sh`;
 
   return (
-    <div className="mx-auto mb-4 flex w-full max-w-3xl flex-col items-center space-y-6 ">
+    <div className="mx-auto mb-4 flex w-full max-w-3xl flex-col items-center space-y-6">
       <section className="text-center">
-        <h1 className="text-primary mb-1 text-4xl font-bold">VWH Email</h1>
-        <p className="text-foreground/80 text-xl">
+        <h1 className="mb-1 text-4xl font-bold text-primary">VWH Email</h1>
+        <p className="text-xl text-foreground/80">
           Open-Source Disposable Email
         </p>
       </section>
-      <div className="bg-primary/10 group relative w-full overflow-hidden rounded border p-4 transition-all duration-300 ease-in-out hover:shadow-md flex flex-col gap-4">
+      <div className="group relative flex w-full flex-col gap-4 overflow-hidden rounded border bg-primary/10 p-4 transition-all duration-300 ease-in-out hover:shadow-md">
         <HomeInput emailValue={email} />
         <section className="flex w-full flex-col justify-between gap-6 sm:flex-row sm:gap-12">
           <div className="flex items-start space-x-4">
             <div>
-              <h2 className="text-primary text-lg font-semibold">
+              <h2 className="text-lg font-semibold text-primary">
                 Use any inbox to avoid spam
               </h2>
               <p className="text-foreground/80">
@@ -31,7 +31,7 @@ export default function Home() {
           </div>
           <div className="flex items-start space-x-4">
             <div>
-              <h2 className="text-primary text-lg font-semibold">
+              <h2 className="text-lg font-semibold text-primary">
                 Email Auto-Deletes
               </h2>
               <p className="text-foreground/80">

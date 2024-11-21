@@ -126,5 +126,5 @@ export const SQL_STATEMENTS = {
   DELETE_EXPIRED_ENTRIES: `
     DELETE FROM Email
     WHERE expiresAt < strftime('%s', 'now') * 1000;
-    `,
+    `
 };

@@ -8,7 +8,7 @@ interface InboxDeleteRedirectProps {
 }
 
 export default function InboxDeleteRedirect({
-  toAddress,
+  toAddress
 }: InboxDeleteRedirectProps) {
   const router = useRouter();
 

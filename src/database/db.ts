@@ -12,13 +12,16 @@ db.exec(SQL_STATEMENTS.PRAGMA);
 db.exec(SQL_STATEMENTS.CREATE_TABLES);
 db.exec(SQL_STATEMENTS.CREATE_INDEX);
 
-setInterval(() => {
-  try {
-    db.exec(SQL_STATEMENTS.DELETE_EXPIRED_ENTRIES);
-  } catch (error) {
-    console.error(error);
-  }
-}, 1000 * 60 * 60 * 2);
+setInterval(
+  () => {
+    try {
+      db.exec(SQL_STATEMENTS.DELETE_EXPIRED_ENTRIES);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  1000 * 60 * 60 * 2
+);
 
 export function insertEmail(
   emailData: SimplifiedEmail
@@ -39,7 +42,7 @@ export function insertEmail(
       { type: "from", values: emailData.from?.value || [] },
       { type: "to", values: emailData.to?.value || [] },
       { type: "cc", values: emailData.cc?.value || [] },
-      { type: "bcc", values: emailData.bcc?.value || [] },
+      { type: "bcc", values: emailData.bcc?.value || [] }
     ];
 
     for (const { type, values } of recipientGroups) {
@@ -54,15 +57,15 @@ export function insertEmail(
     const allRecipients = [
       ...(emailData.to?.value || []),
       ...(emailData.cc?.value || []),
-      ...(emailData.bcc?.value || []),
+      ...(emailData.bcc?.value || [])
     ];
 
     for (const recipient of allRecipients) {
       const type = emailData.to?.value?.includes(recipient)
         ? "to"
         : emailData.cc?.value?.includes(recipient)
-        ? "cc"
-        : "bcc";
+          ? "cc"
+          : "bcc";
 
       insertInbox.run(
         cuid(),

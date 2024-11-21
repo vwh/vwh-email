@@ -21,14 +21,14 @@ export async function POST(request: NextRequest) {
   const emailValidationResult = emailSchema.safeParse(simplifiedEmail);
   if (!emailValidationResult.success)
     return NextResponse.json(emailValidationResult.error.issues, {
-      status: 400,
+      status: 400
     });
 
   if (!simplifiedEmail.to)
     return NextResponse.json(
       { error: "Missing recipient" },
       {
-        status: 400,
+        status: 400
       }
     );
 
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
   return NextResponse.json(
     { error: result.error.message },
     {
-      status: 400,
+      status: 400
     }
   );
 }

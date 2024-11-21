@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start -p 9169",
     "lint": "next lint",
-    "test": "tsx ./tests/test.ts"
+    "test": "tsx ./tests/test.ts",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
@@ -35,6 +36,8 @@
     "eslint": "^8",
     "eslint-config-next": "15.0.1",
     "postcss": "^8",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.19.2",
     "typescript": "^5"

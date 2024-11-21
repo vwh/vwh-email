@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(
       { error: "Invalid email address" },
       {
-        status: 400,
+        status: 400
       }
     );
 
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
   return NextResponse.json(
     { error: result.error.message },
     {
-      status: 400,
+      status: 400
     }
   );
 }

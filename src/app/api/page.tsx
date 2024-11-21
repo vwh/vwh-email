@@ -5,21 +5,21 @@ export default function Component() {
   return (
     <div className="mx-auto mb-4 flex w-full max-w-3xl flex-col items-center space-y-6">
       <section className="text-center">
-        <h1 className="text-primary mb-1 text-4xl font-bold">VWH Email API</h1>
-        <p className="text-foreground/80 text-xl">REST API Documentation</p>
+        <h1 className="mb-1 text-4xl font-bold text-primary">VWH Email API</h1>
+        <p className="text-xl text-foreground/80">REST API Documentation</p>
       </section>
       <section className="w-full space-y-8">
         {/* Email Endpoint */}
-        <div className="bg-primary/10 group relative w-full overflow-hidden rounded border p-4 transition-all duration-300 ease-in-out hover:shadow-md">
+        <div className="group relative w-full overflow-hidden rounded border bg-primary/10 p-4 transition-all duration-300 ease-in-out hover:shadow-md">
           <div className="flex flex-col space-y-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <MailIcon className="h-5 w-5 text-gray-400" />
-                <h2 className="text-primary text-lg font-semibold">
+                <h2 className="text-lg font-semibold text-primary">
                   Get Email Messages
                 </h2>
               </div>
-              <span className="text-foreground/80 text-sm font-medium">
+              <span className="text-sm font-medium text-foreground/80">
                 GET
               </span>
             </div>
@@ -27,10 +27,10 @@ export default function Component() {
               Retrieve all messages for a specific email address
             </p>
             <div className="mt-2 space-y-2">
-              <h2 className="text-primary text-md font-semibold">Endpoint</h2>
+              <h2 className="text-md font-semibold text-primary">Endpoint</h2>
               <section className="flex items-center gap-2">
-                <div className="bg-primary/5 rounded p-2 flex-grow min-w-0">
-                  <code className="text-sm block truncate">
+                <div className="min-w-0 flex-grow rounded bg-primary/5 p-2">
+                  <code className="block truncate text-sm">
                     https://email.vwh.sh/api/email/{"{email}"}
                   </code>
                 </div>
@@ -40,12 +40,12 @@ export default function Component() {
                   className="flex-shrink-0"
                 />
               </section>
-              <h2 className="text-primary text-md font-semibold">Parameters</h2>
-              <ul className="list-disc list-inside text-sm text-foreground/80">
+              <h2 className="text-md font-semibold text-primary">Parameters</h2>
+              <ul className="list-inside list-disc text-sm text-foreground/80">
                 <li>email (string): The email address to fetch messages for</li>
               </ul>
-              <h2 className="text-primary text-md font-semibold">Response</h2>
-              <div className="bg-primary/5 rounded p-2 overflow-x-auto">
+              <h2 className="text-md font-semibold text-primary">Response</h2>
+              <div className="overflow-x-auto rounded bg-primary/5 p-2">
                 <pre className="text-sm text-foreground/80">
                   {`[
   {
@@ -65,16 +65,16 @@ export default function Component() {
           </div>
         </div>
         {/* Inbox Endpoint */}
-        <div className="bg-primary/10 group relative w-full overflow-hidden rounded border p-4 transition-all duration-300 ease-in-out hover:shadow-md">
+        <div className="group relative w-full overflow-hidden rounded border bg-primary/10 p-4 transition-all duration-300 ease-in-out hover:shadow-md">
           <div className="flex flex-col space-y-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <MailIcon className="h-5 w-5 text-gray-400" />
-                <h2 className="text-primary text-lg font-semibold">
+                <h2 className="text-lg font-semibold text-primary">
                   Get Inbox Message
                 </h2>
               </div>
-              <span className="text-foreground/80 text-sm font-medium">
+              <span className="text-sm font-medium text-foreground/80">
                 GET
               </span>
             </div>
@@ -82,10 +82,10 @@ export default function Component() {
               Retrieve a specific message by its ID
             </p>
             <div className="mt-2 space-y-2">
-              <h2 className="text-primary text-md font-semibold">Endpoint</h2>
+              <h2 className="text-md font-semibold text-primary">Endpoint</h2>
               <section className="flex items-center gap-2">
-                <div className="bg-primary/5 rounded p-2 flex-grow min-w-0">
-                  <code className="text-sm block truncate">
+                <div className="min-w-0 flex-grow rounded bg-primary/5 p-2">
+                  <code className="block truncate text-sm">
                     https://email.vwh.sh/api/inbox/{"{inboxId}"}
                   </code>
                 </div>
@@ -95,12 +95,12 @@ export default function Component() {
                   className="flex-shrink-0"
                 />
               </section>
-              <h2 className="text-primary text-md font-semibold">Parameters</h2>
-              <ul className="list-disc list-inside text-sm text-foreground/80">
+              <h2 className="text-md font-semibold text-primary">Parameters</h2>
+              <ul className="list-inside list-disc text-sm text-foreground/80">
                 <li>inboxId (string): The unique identifier of the message</li>
               </ul>
-              <h2 className="text-primary text-md font-semibold">Response</h2>
-              <div className="bg-primary/5 rounded p-2 overflow-x-auto">
+              <h2 className="text-md font-semibold text-primary">Response</h2>
+              <div className="overflow-x-auto rounded bg-primary/5 p-2">
                 <pre className="text-sm text-foreground/80">
                   {`{
   "id": "{inboxId}",
@@ -118,16 +118,16 @@ export default function Component() {
           </div>
         </div>
         {/* Delete Endpoint */}
-        <div className="bg-primary/10 group relative w-full overflow-hidden rounded border p-4 transition-all duration-300 ease-in-out hover:shadow-md">
+        <div className="group relative w-full overflow-hidden rounded border bg-primary/10 p-4 transition-all duration-300 ease-in-out hover:shadow-md">
           <div className="flex flex-col space-y-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <Trash2Icon className="h-5 w-5 text-gray-400" />
-                <h2 className="text-primary text-lg font-semibold">
+                <h2 className="text-lg font-semibold text-primary">
                   Delete Inbox Message
                 </h2>
               </div>
-              <span className="text-foreground/80 text-sm font-medium">
+              <span className="text-sm font-medium text-foreground/80">
                 GET
               </span>
             </div>
@@ -135,10 +135,10 @@ export default function Component() {
               Delete a specific message by its ID
             </p>
             <div className="mt-2 space-y-2">
-              <h2 className="text-primary text-md font-semibold">Endpoint</h2>
+              <h2 className="text-md font-semibold text-primary">Endpoint</h2>
               <section className="flex items-center gap-2">
-                <div className="bg-primary/5 rounded p-2 flex-grow min-w-0">
-                  <code className="text-sm block truncate">
+                <div className="min-w-0 flex-grow rounded bg-primary/5 p-2">
+                  <code className="block truncate text-sm">
                     https://email.vwh.sh/api/delete/{"{inboxId}"}
                   </code>
                 </div>
@@ -148,12 +148,12 @@ export default function Component() {
                   className="flex-shrink-0"
                 />
               </section>
-              <h2 className="text-primary text-md font-semibold">Parameters</h2>
-              <ul className="list-disc list-inside text-sm text-foreground/80">
+              <h2 className="text-md font-semibold text-primary">Parameters</h2>
+              <ul className="list-inside list-disc text-sm text-foreground/80">
                 <li>inboxId (string): The unique identifier of the message</li>
               </ul>
-              <h2 className="text-primary text-md font-semibold">Response</h2>
-              <div className="bg-primary/5 rounded p-2 overflow-x-auto">
+              <h2 className="text-md font-semibold text-primary">Response</h2>
+              <div className="overflow-x-auto rounded bg-primary/5 p-2">
                 <pre className="text-sm text-foreground/80">true</pre>
               </div>
             </div>

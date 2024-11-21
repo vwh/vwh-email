@@ -15,14 +15,14 @@ export default function EmailListItem({
   id,
   subject,
   createdAt,
-  fromAddress,
+  fromAddress
 }: EmailListItemProps) {
   const formattedCreatedAt = formatDistanceToNow(new Date(createdAt), {
-    addSuffix: true,
+    addSuffix: true
   });
 
   return (
-    <div className="bg-primary/10 group relative w-full overflow-hidden rounded border p-4 transition-all duration-300 ease-in-out hover:shadow-md">
+    <div className="group relative w-full overflow-hidden rounded border bg-primary/10 p-4 transition-all duration-300 ease-in-out hover:shadow-md">
       <Link href={`/inbox/${id}`} className="flex flex-col space-y-2">
         <div className="flex items-center justify-between">
           <div
@@ -30,16 +30,16 @@ export default function EmailListItem({
             title={fromAddress ?? "No Sender"}
           >
             <MailIcon className="h-5 w-5 text-gray-400" />
-            <p className="text-foreground/80 max-w-[220px] truncate text-sm font-medium transition-colors duration-300">
+            <p className="max-w-[220px] truncate text-sm font-medium text-foreground/80 transition-colors duration-300">
               {fromAddress ?? "No Sender"}
             </p>
           </div>
-          <span className="group-hover:text-foreground hidden text-xs text-gray-500 transition-colors duration-300 sm:block">
+          <span className="hidden text-xs text-gray-500 transition-colors duration-300 group-hover:text-foreground sm:block">
             {formattedCreatedAt}
           </span>
         </div>
         <p
-          className="text-primary text-md truncate font-semibold transition-colors duration-300"
+          className="text-md truncate font-semibold text-primary transition-colors duration-300"
           title={subject ?? "No Subject"}
         >
           {subject ?? "No Subject"}
@@ -48,7 +48,7 @@ export default function EmailListItem({
           {formattedCreatedAt}
         </p>
       </Link>
-      <div className="to-primary/10 pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent to-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
     </div>
   );
 }

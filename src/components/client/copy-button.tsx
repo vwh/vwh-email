@@ -15,7 +15,7 @@ interface CopyButtonProps {
 export default function CopyButton({
   text,
   className,
-  variant = "outline",
+  variant = "outline"
 }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 

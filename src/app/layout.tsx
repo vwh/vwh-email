@@ -15,16 +15,16 @@ const font = Lexend({
   display: "swap",
   variable: "--font-lexend",
   fallback: ["sans-serif"],
-  preload: true,
+  preload: true
 });
 
 export const metadata: Metadata = {
   title: "VWH Email",
-  description: "Open source temp mail service, anonymous and free",
+  description: "Open source temp mail service, anonymous and free"
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -36,7 +36,7 @@ export default function RootLayout({
       <body className={`${font.className} antialiased`}>
         <NextTopLoader showSpinner={false} color="#909DA8" />
         <NoiseWrapper>
-          <Link href="/api/" className="absolute top-4 right-4">
+          <Link href="/api/" className="absolute right-4 top-4">
             <Button
               variant="outline"
               size="sm"
@@ -65,7 +65,7 @@ export default function RootLayout({
           <main className="flex w-full max-w-5xl flex-col gap-2">
             {children}
           </main>
-          <footer className="text-primary flex flex-col text-center">
+          <footer className="flex flex-col text-center text-primary">
             <span className="sm:text-md text-sm">
               Temp mail service, anonymous and free
             </span>

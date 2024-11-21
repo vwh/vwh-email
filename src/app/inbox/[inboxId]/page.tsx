@@ -52,14 +52,14 @@ export default async function InboxPage({ params }: InboxProps) {
   return (
     <>
       <BackLink to={`/${result.data.toAddress}`} text="Back to Emails" />
-      <section className="bg-primary/85 rounded border p-6 shadow-sm">
-        <div className="text-background flex flex-col justify-between gap-4 sm:flex-row sm:gap-2 md:items-center">
+      <section className="rounded border bg-primary/85 p-6 shadow-sm">
+        <div className="flex flex-col justify-between gap-4 text-background sm:flex-row sm:gap-2 md:items-center">
           <AddressBox
             label="From"
             address={result.data.fromAddress ?? "No Sender"}
           />
           <div className="hidden sm:block">
-            <ArrowRightIcon className="text-background h-5 w-5" />
+            <ArrowRightIcon className="h-5 w-5 text-background" />
           </div>
           <AddressBox
             label="To"
@@ -69,30 +69,30 @@ export default async function InboxPage({ params }: InboxProps) {
       </section>
       <Link href={`/delete/${inboxId}`} className="w-full">
         <Button
-          className="text-background w-full"
+          className="w-full text-background"
           type="button"
           aria-label="Delete Email"
         >
           Delete Email <Trash2Icon />
         </Button>
       </Link>
-      <section className="bg-primary/10 space-y-6">
+      <section className="space-y-6 bg-primary/10">
         <div className="rounded border p-4 shadow-sm">
           <div className="mb-4 flex flex-col text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
             <span>
               Received{" "}
               {formatDistanceToNow(new Date(result.data.createdAt), {
-                addSuffix: true,
+                addSuffix: true
               })}
             </span>
             <span>
               Expires{" "}
               {formatDistanceToNow(new Date(result.data.expiresAt), {
-                addSuffix: true,
+                addSuffix: true
               })}
             </span>
           </div>
-          <h2 className="text-primary mb-4 text-xl font-semibold">
+          <h2 className="mb-4 text-xl font-semibold text-primary">
             {result.data?.subject ?? "No Subject"}
           </h2>
           <div className="prose max-w-none">{renderContent()}</div>

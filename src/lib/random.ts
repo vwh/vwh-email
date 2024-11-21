@@ -1280,7 +1280,7 @@ const words = [
   "metal",
   "pie",
   "jewel",
-  "cord",
+  "cord"
 ];
 
 export function randomMail() {
