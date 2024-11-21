@@ -27,7 +27,7 @@ export default function Component() {
               Retrieve all messages for a specific email address
             </p>
             <div className="mt-2 space-y-2">
-              <h3 className="text-primary text-md font-semibold">Endpoint</h3>
+              <h2 className="text-primary text-md font-semibold">Endpoint</h2>
               <section className="flex items-center gap-2">
                 <div className="bg-primary/5 rounded p-2 flex-grow min-w-0">
                   <code className="text-sm block truncate">
@@ -40,11 +40,11 @@ export default function Component() {
                   className="flex-shrink-0"
                 />
               </section>
-              <h3 className="text-primary text-md font-semibold">Parameters</h3>
+              <h2 className="text-primary text-md font-semibold">Parameters</h2>
               <ul className="list-disc list-inside text-sm text-foreground/80">
                 <li>email (string): The email address to fetch messages for</li>
               </ul>
-              <h3 className="text-primary text-md font-semibold">Response</h3>
+              <h2 className="text-primary text-md font-semibold">Response</h2>
               <div className="bg-primary/5 rounded p-2 overflow-x-auto">
                 <pre className="text-sm text-foreground/80">
                   {`[
@@ -82,7 +82,7 @@ export default function Component() {
               Retrieve a specific message by its ID
             </p>
             <div className="mt-2 space-y-2">
-              <h3 className="text-primary text-md font-semibold">Endpoint</h3>
+              <h2 className="text-primary text-md font-semibold">Endpoint</h2>
               <section className="flex items-center gap-2">
                 <div className="bg-primary/5 rounded p-2 flex-grow min-w-0">
                   <code className="text-sm block truncate">
@@ -95,11 +95,11 @@ export default function Component() {
                   className="flex-shrink-0"
                 />
               </section>
-              <h3 className="text-primary text-md font-semibold">Parameters</h3>
+              <h2 className="text-primary text-md font-semibold">Parameters</h2>
               <ul className="list-disc list-inside text-sm text-foreground/80">
                 <li>inboxId (string): The unique identifier of the message</li>
               </ul>
-              <h3 className="text-primary text-md font-semibold">Response</h3>
+              <h2 className="text-primary text-md font-semibold">Response</h2>
               <div className="bg-primary/5 rounded p-2 overflow-x-auto">
                 <pre className="text-sm text-foreground/80">
                   {`{
@@ -135,7 +135,7 @@ export default function Component() {
               Delete a specific message by its ID
             </p>
             <div className="mt-2 space-y-2">
-              <h3 className="text-primary text-md font-semibold">Endpoint</h3>
+              <h2 className="text-primary text-md font-semibold">Endpoint</h2>
               <section className="flex items-center gap-2">
                 <div className="bg-primary/5 rounded p-2 flex-grow min-w-0">
                   <code className="text-sm block truncate">
@@ -148,11 +148,11 @@ export default function Component() {
                   className="flex-shrink-0"
                 />
               </section>
-              <h3 className="text-primary text-md font-semibold">Parameters</h3>
+              <h2 className="text-primary text-md font-semibold">Parameters</h2>
               <ul className="list-disc list-inside text-sm text-foreground/80">
                 <li>inboxId (string): The unique identifier of the message</li>
               </ul>
-              <h3 className="text-primary text-md font-semibold">Response</h3>
+              <h2 className="text-primary text-md font-semibold">Response</h2>
               <div className="bg-primary/5 rounded p-2 overflow-x-auto">
                 <pre className="text-sm text-foreground/80">true</pre>
               </div>

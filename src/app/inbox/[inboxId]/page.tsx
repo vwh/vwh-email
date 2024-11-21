@@ -68,7 +68,11 @@ export default async function InboxPage({ params }: InboxProps) {
         </div>
       </section>
       <Link href={`/delete/${inboxId}`} className="w-full">
-        <Button className="text-background w-full">
+        <Button
+          className="text-background w-full"
+          type="button"
+          aria-label="Delete Email"
+        >
           Delete Email <Trash2Icon />
         </Button>
       </Link>

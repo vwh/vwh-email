@@ -1,12 +1,14 @@
 import "./globals.css";
 
 import Link from "next/link";
-import { Lexend } from "next/font/google";
+import Head from "next/head";
 import Image from "next/image";
 import type { Metadata } from "next";
 
 import NextTopLoader from "nextjs-toploader";
 import { Button } from "@/components/ui/button";
+
+import { Lexend } from "next/font/google";
 
 const font = Lexend({
   subsets: ["latin"],
@@ -18,7 +20,7 @@ const font = Lexend({
 
 export const metadata: Metadata = {
   title: "VWH Email",
-  description: "Temp mail service, anonymously and free.",
+  description: "Open source temp mail service, anonymous and free",
 };
 
 export default function RootLayout({
@@ -28,11 +30,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="preload" as="image" href="/noise.webp" type="image/webp" />
+      </Head>
       <body className={`${font.className} antialiased`}>
         <NextTopLoader showSpinner={false} color="#909DA8" />
         <NoiseWrapper>
           <Link href="/api/" className="absolute top-4 right-4">
-            <Button variant="outline" size="sm" className="text-sm">
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-sm"
+              type="button"
+              aria-label="API"
+            >
               API
             </Button>
           </Link>
@@ -44,10 +55,11 @@ export default function RootLayout({
               draggable={false}
               src="/logo.webp"
               className="h-28 w-28"
-              width={100}
-              height={100}
+              width={112}
+              height={112}
               alt="Logo"
               title="Logo"
+              priority
             />
           </Link>
           <main className="flex w-full max-w-5xl flex-col gap-2">
@@ -55,7 +67,7 @@ export default function RootLayout({
           </main>
           <footer className="text-primary flex flex-col text-center">
             <span className="sm:text-md text-sm">
-              Temp mail service, anonymously and free.
+              Temp mail service, anonymous and free
             </span>
             <a
               target="_blank"

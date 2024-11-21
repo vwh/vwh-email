@@ -33,6 +33,9 @@ export default function CopyButton({
       size="icon"
       className={`h-10 w-10 ${className}`}
       onClick={copyToClipboard}
+      type="button"
+      aria-label="Copy To Clipboard"
+      title="Copy To Clipboard"
     >
       {copied ? (
         <CopyCheckIcon className="h-4 w-4" />

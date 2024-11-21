@@ -36,13 +36,26 @@ export default function HomeInput({ emailValue }: HomeInputProps) {
           className="flex-grow"
           type="email"
         />
-        <Button onClick={regenerateEmail} size="icon" variant="outline">
+        <Button
+          onClick={regenerateEmail}
+          size="icon"
+          variant="outline"
+          type="button"
+          aria-label="Regenerate Email"
+          title="Regenerate Email"
+        >
           <RefreshCwIcon className="h-4 w-4" />
         </Button>
         <CopyButton text={email} />
       </div>
       <Link href={`/${email}`}>
-        <Button className="mt-2 w-full text-background">Get Mail Now!</Button>
+        <Button
+          className="mt-2 w-full text-background"
+          type="button"
+          aria-label="Get Mail Now"
+        >
+          Get Mail Now!
+        </Button>
       </Link>
     </section>
   );

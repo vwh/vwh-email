@@ -20,9 +20,9 @@ export default function Home() {
         <section className="flex w-full flex-col justify-between gap-6 sm:flex-row sm:gap-12">
           <div className="flex items-start space-x-4">
             <div>
-              <h3 className="text-primary text-lg font-semibold">
+              <h2 className="text-primary text-lg font-semibold">
                 Use any inbox to avoid spam
-              </h3>
+              </h2>
               <p className="text-foreground/80">
                 Use it when you don{"'"}t want to get spammed by revealing your
                 real email address.
@@ -31,9 +31,9 @@ export default function Home() {
           </div>
           <div className="flex items-start space-x-4">
             <div>
-              <h3 className="text-primary text-lg font-semibold">
+              <h2 className="text-primary text-lg font-semibold">
                 Email Auto-Deletes
-              </h3>
+              </h2>
               <p className="text-foreground/80">
                 Emails are in the public domain, and auto delete after three
                 days.
