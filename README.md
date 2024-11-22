@@ -1,8 +1,30 @@
+<div align="center">
+
+<a href="https://email.vwh.sh" target="_blank">
+    <img src="https://github.com/user-attachments/assets/c9f29d05-7652-46f6-baa1-1dd38e7814d1" alt="logo" width="128">
+</a>
+
 # VWH Email
 
-VWH Email is an open-source temporary email service that provides quick, anonymous email solutions.
+Open-source temporary email service that provides quick, anonymous email solutions.
 
-## 🐳 Dockerized Installation (Coming Soon)
+[![License](https://img.shields.io/github/license/vwh/vwh-email?label=License)](https://github.com/vwh/sqlite-viewer/blob/main/LICENSE)
+[![Format Check](https://github.com/vwh/vwh-email/actions/workflows/format.yml/badge.svg)](https://github.com/vwh/vwh-email/actions/workflows/format.yml)
+[![Lint](https://github.com/vwh/vwh-email/actions/workflows/lint.yml/badge.svg)](https://github.com/vwh/vwh-email/actions/workflows/lint.yml)
+
+<a href="https://email.vwh.sh" target="_blank">
+    Website
+</a>
+•
+<a href="https://email.vwh.sh/api" target="_blank">
+    API Docs
+</a>
+
+</div>
+
+---
+
+## Dockerized Installation (Coming Soon)
 
 **Status: Under Development**
 
@@ -15,7 +37,7 @@ VWH Email is an open-source temporary email service that provides quick, anonymo
   - Integrated webhook
   - Easy environment setup
 
-## 🖥️ Manual Installation
+## Manual Installation
 
 ### Prerequisites
 
