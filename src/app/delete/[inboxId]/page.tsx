@@ -24,7 +24,7 @@ export default async function InboxPage({ params }: InboxProps) {
   if (!getResult.data)
     return (
       <ErrorAlert
-        title="No Inbox Found"
+        title="No inbox found"
         description="Does not exist or has been deleted."
       />
     );

@@ -16,7 +16,7 @@ export default async function Email({ params }: EmailProps) {
   if (!decodedEmail.includes("@")) {
     return (
       <ErrorAlert
-        title="Invalid Email"
+        title="Invalid email"
         description="Please enter a valid email address."
       />
     );

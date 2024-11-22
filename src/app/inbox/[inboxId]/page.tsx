@@ -44,14 +44,14 @@ export default async function InboxPage({ params }: InboxProps) {
   if (!result.data)
     return (
       <ErrorAlert
-        title="No Inbox Found"
+        title="No inbox found"
         description="Does not exist or has been deleted."
       />
     );
 
   return (
     <>
-      <BackLink to={`/${result.data.toAddress}`} text="Back to Emails" />
+      <BackLink to={`/${result.data.toAddress}`} text="Back to emails" />
       <section className="rounded border bg-primary/85 p-6 shadow-sm">
         <div className="flex flex-col justify-between gap-4 text-background sm:flex-row sm:gap-2 md:items-center">
           <AddressBox
@@ -67,13 +67,13 @@ export default async function InboxPage({ params }: InboxProps) {
           />
         </div>
       </section>
-      <Link href={`/delete/${inboxId}`} className="w-full">
+      <Link href={`/delete/${inboxId}`} className="w-full" title="Delete email">
         <Button
           className="w-full text-background"
           type="button"
-          aria-label="Delete Email"
+          aria-label="Delete email"
         >
-          Delete Email <Trash2Icon />
+          Delete email <Trash2Icon />
         </Button>
       </Link>
       <section className="space-y-6 bg-primary/10">

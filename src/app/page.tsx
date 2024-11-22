@@ -12,7 +12,7 @@ export default function Home() {
       <section className="text-center">
         <h1 className="mb-1 text-4xl font-bold text-primary">VWH Email</h1>
         <p className="text-xl text-foreground/80">
-          Open-Source Disposable Email
+          Open source disposable email
         </p>
       </section>
       <div className="group relative flex w-full flex-col gap-4 overflow-hidden rounded border bg-primary/10 p-4 transition-all duration-300 ease-in-out hover:shadow-md">
@@ -32,7 +32,7 @@ export default function Home() {
           <div className="flex items-start space-x-4">
             <div>
               <h2 className="text-lg font-semibold text-primary">
-                Email Auto-Deletes
+                Email auto deletes
               </h2>
               <p className="text-foreground/80">
                 Emails are in the public domain, and auto delete after three

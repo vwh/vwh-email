@@ -16,7 +16,7 @@ export default function Component() {
               <div className="flex items-center space-x-2">
                 <MailIcon className="h-5 w-5 text-gray-400" />
                 <h2 className="text-lg font-semibold text-primary">
-                  Get Email Messages
+                  Get email messages
                 </h2>
               </div>
               <span className="text-sm font-medium text-foreground/80">
@@ -31,12 +31,12 @@ export default function Component() {
               <section className="flex items-center gap-2">
                 <div className="min-w-0 flex-grow rounded bg-primary/5 p-2">
                   <code className="block truncate text-sm">
-                    https://email.vwh.sh/api/email/{"{email}"}
+                    https://email.vwh.sh/api/email/recipient@vwh.sh
                   </code>
                 </div>
                 <CopyButton
                   variant="ghost"
-                  text={"https://email.vwh.sh/api/email/{email}"}
+                  text={"https://email.vwh.sh/api/email/recipient@vwh.sh"}
                   className="flex-shrink-0"
                 />
               </section>
@@ -71,7 +71,7 @@ export default function Component() {
               <div className="flex items-center space-x-2">
                 <MailIcon className="h-5 w-5 text-gray-400" />
                 <h2 className="text-lg font-semibold text-primary">
-                  Get Inbox Message
+                  Get inbox message
                 </h2>
               </div>
               <span className="text-sm font-medium text-foreground/80">
@@ -86,12 +86,14 @@ export default function Component() {
               <section className="flex items-center gap-2">
                 <div className="min-w-0 flex-grow rounded bg-primary/5 p-2">
                   <code className="block truncate text-sm">
-                    https://email.vwh.sh/api/inbox/{"{inboxId}"}
+                    https://email.vwh.sh/api/inbox/cm3sqher40005276o336z4fvw
                   </code>
                 </div>
                 <CopyButton
                   variant="ghost"
-                  text={"https://email.vwh.sh/api/inbox/{inboxId}"}
+                  text={
+                    "https://email.vwh.sh/api/inbox/cm3sqher40005276o336z4fvw"
+                  }
                   className="flex-shrink-0"
                 />
               </section>
@@ -99,12 +101,14 @@ export default function Component() {
               <ul className="list-inside list-disc text-sm text-foreground/80">
                 <li>inboxId (string): The unique identifier of the message</li>
               </ul>
-              <h2 className="text-md font-semibold text-primary">Response</h2>
+              <h2 className="text-md font-semibold text-primary">
+                Example response
+              </h2>
               <div className="overflow-x-auto rounded bg-primary/5 p-2">
                 <pre className="text-sm text-foreground/80">
                   {`{
   "id": "cm3sqher40005276o336z4fvw",
-  "textContent": "This is a test email body.\n",
+  "textContent": "This is a test email body.",
   "htmlContent": null,
   "subject": "Test Email",
   "expiresAt": 1732538692335,
@@ -124,7 +128,7 @@ export default function Component() {
               <div className="flex items-center space-x-2">
                 <Trash2Icon className="h-5 w-5 text-gray-400" />
                 <h2 className="text-lg font-semibold text-primary">
-                  Delete Inbox Message
+                  Delete inbox message
                 </h2>
               </div>
               <span className="text-sm font-medium text-foreground/80">
@@ -139,12 +143,14 @@ export default function Component() {
               <section className="flex items-center gap-2">
                 <div className="min-w-0 flex-grow rounded bg-primary/5 p-2">
                   <code className="block truncate text-sm">
-                    https://email.vwh.sh/api/delete/{"{inboxId}"}
+                    https://email.vwh.sh/api/delete/cm3sqher40005276o336z4fvw
                   </code>
                 </div>
                 <CopyButton
                   variant="ghost"
-                  text={"https://email.vwh.sh/api/delete/{inboxId}"}
+                  text={
+                    "https://email.vwh.sh/api/delete/cm3sqher40005276o336z4fvw"
+                  }
                   className="flex-shrink-0"
                 />
               </section>
@@ -152,7 +158,9 @@ export default function Component() {
               <ul className="list-inside list-disc text-sm text-foreground/80">
                 <li>inboxId (string): The unique identifier of the message</li>
               </ul>
-              <h2 className="text-md font-semibold text-primary">Response</h2>
+              <h2 className="text-md font-semibold text-primary">
+                Example response
+              </h2>
               <div className="overflow-x-auto rounded bg-primary/5 p-2">
                 <pre className="text-sm text-foreground/80">true</pre>
               </div>

@@ -55,7 +55,7 @@ export default function EmailsRefresh({ dbEmails, email }: EmailsRefreshProps) {
   return (
     <>
       <section className="flex justify-between">
-        <BackLink to="/" text="Back to Home" />
+        <BackLink to="/" text="Back to home" />
         <p className="flex items-end text-xs">{isFetching && "Refreshing"}</p>
         <p className="flex items-center text-sm text-red-500">{error}</p>
       </section>
@@ -90,8 +90,8 @@ export default function EmailsRefresh({ dbEmails, email }: EmailsRefreshProps) {
         </section>
       ) : (
         <ErrorAlert
-          title="No Emails Found Yet"
-          description="Refreshing Automatically"
+          title="No emails found yet"
+          description="Refreshing automatically"
           icon={
             <Loader2Icon className="h-4 w-4 animate-spin text-primary sm:h-7 sm:w-7" />
           }

@@ -36,7 +36,7 @@ export default function RootLayout({
       <body className={`${font.className} antialiased`}>
         <NextTopLoader showSpinner={false} color="#909DA8" />
         <NoiseWrapper>
-          <Link href="/api/" className="absolute right-4 top-4">
+          <Link href="/api/" className="absolute right-4 top-4" title="API">
             <Button
               variant="outline"
               size="sm"
@@ -50,6 +50,7 @@ export default function RootLayout({
           <Link
             href="/"
             className="transition-transform duration-300 hover:scale-110"
+            title="Home"
           >
             <Image
               draggable={false}
@@ -74,6 +75,7 @@ export default function RootLayout({
               rel="noopener noreferrer"
               href="https://github.com/vwh/vwh-email"
               className="hover:underline"
+              title="Github"
             >
               <strong>
                 Made with <span className="animate-pulse">💙</span> by @vwh

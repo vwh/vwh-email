@@ -23,7 +23,11 @@ export default function EmailListItem({
 
   return (
     <div className="group relative w-full overflow-hidden rounded border bg-primary/10 p-4 transition-all duration-300 ease-in-out hover:shadow-md">
-      <Link href={`/inbox/${id}`} className="flex flex-col space-y-2">
+      <Link
+        href={`/inbox/${id}`}
+        className="flex flex-col space-y-2"
+        title="View inbox"
+      >
         <div className="flex items-center justify-between">
           <div
             className="flex items-center space-x-2"
