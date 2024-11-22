@@ -44,19 +44,17 @@ export default function Component() {
               <ul className="list-inside list-disc text-sm text-foreground/80">
                 <li>email (string): The email address to fetch messages for</li>
               </ul>
-              <h2 className="text-md font-semibold text-primary">Response</h2>
+              <h2 className="text-md font-semibold text-primary">Example response</h2>
               <div className="overflow-x-auto rounded bg-primary/5 p-2">
                 <pre className="text-sm text-foreground/80">
                   {`[
   {
-    "id": "{inboxId}",
-    "subject": "Test",
-    "createdAt": 1732026087000,
-    "expiresAt": 1732285287596,
-    "fromAddress": "example@gmail.com",
-    "toAddress": "{email}",
-    "ccAddress": null,
-    "bccAddress": null
+    "id": "cm3sqher40005276o336z4fvw",
+    "subject": "Test Email",
+    "createdAt": 1732279492000,
+    "expiresAt": 1732538692335,
+    "fromAddress": "sender@example.com",
+    "toAddress": "recipient@vwh.sh"
   }
 ]`}
                 </pre>
@@ -103,14 +101,14 @@ export default function Component() {
               <div className="overflow-x-auto rounded bg-primary/5 p-2">
                 <pre className="text-sm text-foreground/80">
                   {`{
-  "id": "{inboxId}",
-  "textContent": "Hello\\n",
-  "htmlContent": "<div dir=\\"rtl\\"><div dir=\\"ltr\\">Hello</div></div>\\n",
-  "subject": "Test",
-  "expiresAt": 1732285287596,
-  "createdAt": 1732026087000,
-  "fromAddress": "example@gmail.com",
-  "toAddress": "example@vwh.sh"
+  "id": "cm3sqher40005276o336z4fvw",
+  "textContent": "This is a test email body.\n",
+  "htmlContent": null,
+  "subject": "Test Email",
+  "expiresAt": 1732538692335,
+  "createdAt": 1732279492000,
+  "fromAddress": "sender@example.com",
+  "toAddress": "recipient@vwh.sh"
 }`}
                 </pre>
               </div>

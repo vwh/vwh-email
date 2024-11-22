@@ -41,8 +41,6 @@ export function insertEmail(
     const recipientGroups = [
       { type: "from", values: emailData.from?.value || [] },
       { type: "to", values: emailData.to?.value || [] },
-      { type: "cc", values: emailData.cc?.value || [] },
-      { type: "bcc", values: emailData.bcc?.value || [] }
     ];
 
     for (const { type, values } of recipientGroups) {
@@ -56,24 +54,15 @@ export function insertEmail(
     // Insert inbox entries
     const allRecipients = [
       ...(emailData.to?.value || []),
-      ...(emailData.cc?.value || []),
-      ...(emailData.bcc?.value || [])
     ];
 
     for (const recipient of allRecipients) {
-      const type = emailData.to?.value?.includes(recipient)
-        ? "to"
-        : emailData.cc?.value?.includes(recipient)
-          ? "cc"
-          : "bcc";
-
       insertInbox.run(
         cuid(),
         emailId,
         recipient.address,
-        type,
-        emailData.text ?? null,
-        emailData.html ?? null
+        emailData.text,
+        emailData.html
       );
     }
 

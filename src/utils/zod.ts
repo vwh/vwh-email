@@ -21,8 +21,6 @@ export const emailSchema = z.object({
   id: z.string(),
   from: emailAddressSchema.nullable(),
   to: emailAddressSchema.nullable(),
-  cc: emailAddressSchema.nullable(),
-  bcc: emailAddressSchema.nullable(),
   subject: z.string().nullable(),
   text: z.string().nullable(),
   html: z.string().nullable(),

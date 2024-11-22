@@ -27,8 +27,6 @@ export function simplifyEmail(email: ParsedMail): SimplifiedEmail {
     id: email.messageId || "",
     from: convertAddress(email.from),
     to: convertAddress(email.to),
-    cc: convertAddress(email.cc),
-    bcc: convertAddress(email.bcc),
     subject: email.subject || null,
     text: email.text || null,
     html: email.html || null,
