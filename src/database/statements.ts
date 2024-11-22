@@ -68,6 +68,7 @@ export const SQL_STATEMENTS = {
     FROM Email
     JOIN Inbox ON Email.id = Inbox.emailId
     WHERE Inbox.address = ?
+    ORDER BY Email.createdAt DESC
   `,
 
   GET_INBOX_BY_ID: `
