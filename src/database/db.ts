@@ -40,7 +40,7 @@ export function insertEmail(
     // Insert email addresses
     const recipientGroups = [
       { type: "from", values: emailData.from?.value || [] },
-      { type: "to", values: emailData.to?.value || [] },
+      { type: "to", values: emailData.to?.value || [] }
     ];
 
     for (const { type, values } of recipientGroups) {
@@ -52,9 +52,7 @@ export function insertEmail(
     }
 
     // Insert inbox entries
-    const allRecipients = [
-      ...(emailData.to?.value || []),
-    ];
+    const allRecipients = [...(emailData.to?.value || [])];
 
     for (const recipient of allRecipients) {
       insertInbox.run(

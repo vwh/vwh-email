@@ -31,7 +31,7 @@ export const SQL_STATEMENTS = {
     );
     `,
 
-    CREATE_INDEX: `
+  CREATE_INDEX: `
     CREATE INDEX IF NOT EXISTS idx_email_id ON EmailAddress(emailId);
     CREATE INDEX IF NOT EXISTS idx_inbox_address ON Inbox(address);
   `,

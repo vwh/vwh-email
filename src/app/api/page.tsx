@@ -44,7 +44,9 @@ export default function Component() {
               <ul className="list-inside list-disc text-sm text-foreground/80">
                 <li>email (string): The email address to fetch messages for</li>
               </ul>
-              <h2 className="text-md font-semibold text-primary">Example response</h2>
+              <h2 className="text-md font-semibold text-primary">
+                Example response
+              </h2>
               <div className="overflow-x-auto rounded bg-primary/5 p-2">
                 <pre className="text-sm text-foreground/80">
                   {`[
