@@ -13,11 +13,11 @@ export default async function Email({ params }: EmailProps) {
   const { email } = await params;
   const decodedEmail = decodeURIComponent(email);
 
-  if (!decodedEmail.includes("@")) {
+  if (!decodedEmail.endsWith("@vwh.sh")) {
     return (
       <ErrorAlert
-        title="Invalid email"
-        description="Please enter a valid email address."
+        title="Invalid Email"
+        description="Email must end with @vwh.sh ."
       />
     );
   }
