@@ -1,3 +1,6 @@
+( MOVED )
+https://github.com/vwh/temp-mail
+
 <div align="center">
 
 <a href="https://email.vwh.sh" target="_blank">
